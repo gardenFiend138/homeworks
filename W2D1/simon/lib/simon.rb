@@ -39,8 +39,9 @@ class Simon
 
     if !correct_guess?(user_guess)
       @game_over = true
-    end
+    else 
     @score += 1
+    end
   end
 
   def correct_guess?(sequence)
