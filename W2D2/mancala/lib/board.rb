@@ -26,11 +26,11 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    stones = @cups[start_pos].length
+    stones = @cups[start_pos]
     @cups[start_pos] = []
 
     idx = start_pos
-    until stones < 1
+    until stones.empty?
       idx += 1
       if idx > @cups.length - 1
         idx = 0
@@ -42,15 +42,18 @@ class Board
       # when current_player_name == @player2
       #   @cups[idx] << :stone unless idx == 6
       # end
+      # Same reason that the below wasn't working with stones as an integer;
+      # I was decrementing every time, but when idx is 6 and player is 2,
+      # I want to NOT do anything. 
       if idx == 6
-        @cups[idx] << :stone if current_player_name == @player1
+        @cups[idx] << stones.pop if current_player_name == @player1
       elsif idx == 13
-        @cups[idx] << :stone if current_player_name == @player2
+        @cups[idx] << stones.pop if current_player_name == @player2
+
       else
-        @cups[idx] << :stone
+        @cups[idx] << stones.pop
       end
 
-      stones -= 1
     end
 
     render
