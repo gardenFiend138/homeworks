@@ -88,7 +88,8 @@ end
 
 p slow_dance("up", ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ])
 
-# Find longest string in array in O(1); binary search
+# Find longest string in array in O(1); binary search...wait, does this
+# still count as O(1)?
 
 def constant_dance(direction, hash)
   hash.each do |key, value|
