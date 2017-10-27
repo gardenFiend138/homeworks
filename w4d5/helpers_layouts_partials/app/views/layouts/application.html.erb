@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- I spent quite a bit of time getting the custom footers to work for each page,so I wasn't able to get to the action mailer...tomorrow! -->
+<html>
+  <head>
+    <title>99.times { =^.^= } </title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav class="main-nav">
+    <h1><%= link_to "99 Cats", cats_url %></h1>
+    <div>
+    <% if current_user.nil? %>
+      <%= link_to 'Sign in', new_session_url %>
+      <%= link_to 'Sign up', new_user_url %>
+    <% else %>
+      <%= current_user.username %>
+      <%= button_to 'Logout', session_url, method: :delete %>
+    <% end %>
+    </div>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+
+<% content_for :footer do %>
+  <!-- <footer> -->
+    <p>
+        Hello there, and thank you for visiting 99cats.com! Here at 99Cats, our
+      philosophy is that everyone deserves to feel like a crazy cat person
+      sometimes, even if they're not able to commit to the lifestyle fulltime.
+      In addition to offering cat rentals, we also allow current milti-cat
+      enthusiasts to offer their furry companion animals up for temporary rental,and even provide guidance to amateur and aspiring multi-cat enthusiasts.Between our users, we have over 10^138 cats, and a combined 138,000 years experience co-existing with our furry feline friends (and that's not in cat years!). We hope you enjoy your visit to 99Cats.com, and look forward to helping you along your journey in becoming THE ultimate multi-cat enthusiast!   =^.^=   meOW!
+    </p>
+  <!-- </footer> -->
+  <% end %>
+  <footer>
+    <%= yield :footer %>
+  </footer>
+
+</html>
