@@ -12156,7 +12156,16 @@ var _root = __webpack_require__(105);
 
 var _root2 = _interopRequireDefault(_root);
 
+var _api_util = __webpack_require__(115);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// first bug...forgot to put the method on the window so I had access to it
+// in the browser console! D'oh!
+
+// REMOVE THESE BEFORE PRODUCTION
+window.fetchSearchGiphys = _api_util.fetchSearchGiphys;
+// REMOVE THESE BEFORE PRODUCTION
 
 /***/ }),
 /* 113 */
@@ -12188,6 +12197,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var fetchSearchGiphys = exports.fetchSearchGiphys = function fetchSearchGiphys(searchTerm) {
+  return $.ajax({
+    method: 'GET',
+    url: 'http://api.giphy.com/v1/gifs/search?q=' + (searchTerm + '&api_key=7qFuVG0DKr6g1gFd16NQX5WR2gumxc76&limit=2')
+  });
+};
 
 /***/ }),
 /* 116 */
