@@ -27,13 +27,13 @@ h3 {
 .orange {
   background-color: orange;
   width: 50px;
-  height: 50px;
+  height: 100px;
 }
 
 .yellow {
   background-color: yellow;
   width: 50px;
-  height: 50px;
+  height: 100px;
 }
 
 .green {
@@ -51,7 +51,7 @@ h3 {
 .indigo {
   background-color: mediumslateblue;
   width: 50px;
-  height: 50px;
+  height: 100px;
 }
 
 .violet {
